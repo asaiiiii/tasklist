@@ -28,7 +28,7 @@ public class UpdateServlet extends HttpServlet {
      */
     public UpdateServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
     /**
@@ -63,7 +63,7 @@ public class UpdateServlet extends HttpServlet {
 
             em.getTransaction().begin();
             em.getTransaction().commit();
-            request.getSession().setAttribute("flush", "更新が完了しました。");       // ここを追記
+            request.getSession().setAttribute("flush", "更新が完了しました。");
             em.close();
 
 

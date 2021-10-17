@@ -22,7 +22,7 @@ public class TasklistValidator {
     }
     private static String validateTitle(String title) {
         if(title==null||title.equals("")){
-            return "タイトルを入力してください。";
+            return "日時を入力してください。";
         }
 
         return "";
@@ -30,7 +30,7 @@ public class TasklistValidator {
     }
     private static String validateContent(String content) {
         if(content==null||content.equals("")) {
-            return "メッセージを入力してください";
+            return "タスク内容を入力してください";
 
         }
         return "";

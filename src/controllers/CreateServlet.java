@@ -28,7 +28,7 @@ public class CreateServlet extends HttpServlet {
      */
     public CreateServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
     /**
@@ -65,7 +65,7 @@ public class CreateServlet extends HttpServlet {
 
             em.persist(m);
             em.getTransaction().commit();
-            request.getSession().setAttribute("flush", "登録が完了しました。");       // ここを追記
+            request.getSession().setAttribute("flush", "登録が完了しました。");
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");
