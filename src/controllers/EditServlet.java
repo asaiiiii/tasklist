@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Tasklist;
 import utils.DBUtil;
 
 /**
@@ -34,17 +34,17 @@ public class EditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        Message m = em.find(Message.class, Integer.parseInt(request.getParameter("id")));
+        Tasklist m = em.find(Tasklist.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        request.setAttribute("message", m);
+        request.setAttribute("task", m);
         request.setAttribute("_token", request.getSession().getId());
         if(m !=null) {
-        request.getSession().setAttribute("message_id", m.getId());
+        request.getSession().setAttribute("task_id", m.getId());
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/message/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/task/edit.jsp");
         rd.forward(request, response);
     }
 }
